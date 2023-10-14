@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+    
+  <head>
+      
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap" rel="stylesheet">
+<meta http-equiv="refresh" content="23"; url=index.html"/>
+
+
+    <style>
+      #typewriter {
+        white-space: pre;
+        position: absolute;
+        left: 50%;
+        top:50%;
+        transform: translate(-50%, -50%);
+        font-family: 'Kaushan Script',cursive;
+      }
+      
+      body{
+          background-image: url("book.jpeg");
+          background-size: cover;
+          background-repeat: no-repeat;
+          background-position: center;
+          background-attachment: fixed;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="typewriter"></div>
+
+    <script>
+      const textArray = [
+        "Hi jane<3",
+        "May gusto lang akong sabihin",
+        "Natanong mo nadin saken to,",
+        "Ang alam ko hindi kapa nga nakatulog",
+        "Dito kase hindi ko sinagot yung tanong mo,",
+        "Eh ngayun sasagutin ko na sya.",
+        ".............................",
+        "",
+        "",
+        "You're My.."
+      ];
+
+      const typewriter = document.getElementById("typewriter");
+      let lineIndex = 0;
+      let charIndex = 0;
+
+      function typeText() {
+        if (lineIndex < textArray.length) {
+          const line = textArray[lineIndex];
+
+          if (charIndex < line.length) {
+            typewriter.textContent += line.charAt(charIndex);
+            charIndex++;
+            setTimeout(typeText, 100); // 200ms delay between characters
+          } else {
+            lineIndex++;
+            charIndex = 0;
+            typewriter.textContent += "\n"; // Move to the next line
+            setTimeout(typeText, 100); // 2-second delay between lines
+          }
+        }
+      }
+
+      typeText();
+    </script>
+  </body>
+</html>

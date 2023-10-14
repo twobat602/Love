@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Page title</title>
+    <link rel="stylesheet" href="style.css">
+    
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap" rel="stylesheet">
+
+    
+</head>
+<body>
+    <div class="container">
+        <div class="flower">
+            <img src="flower.png">
+        </div>
+        <div class="box">
+            <img src="icon.jpg" class="icon">
+            <h1>My Greatest Love</h1>
+            <div class="audio">
+                <audio controls autoplay>
+                    <source src="audio.mp3">
+                </audio>
+            </div>
+        </div>
+        
+    </div>
+<script>
+    // Function to create falling text
+    function createFallingText() {
+        const text = document.createElement('div');
+        text.className = 'falling-text';
+        text.textContent = '🩷';
+        document.body.appendChild(text);
+
+        // Randomize initial position and animation speed
+        const x = Math.random() * window.innerWidth;
+        const y = -30;
+        text.style.left = x + 'px';
+        text.style.top = y + 'px';
+
+        const speed = Math.random() * 3 + 1;
+
+        // Animate the falling text
+        function fall() {
+            const currentY = parseFloat(text.style.top);
+            if (currentY > window.innerHeight) {
+                text.style.top = -30 + 'px';
+                text.style.left = Math.random() * window.innerWidth + 'px';
+            } else {
+                text.style.top = (currentY + speed) + 'px';
+            }
+        }
+
+        // Set an interval to update the falling text's position
+        setInterval(fall, 50);
+    }
+
+    // Create multiple falling text elements
+    for (let i = 0; i < 10; i++) {
+        createFallingText();
+    }
+</script>
+</body>
+</html>
